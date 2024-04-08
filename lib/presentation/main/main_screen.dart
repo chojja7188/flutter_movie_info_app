@@ -54,8 +54,12 @@ class _MainScreenState extends State<MainScreen> {
             height: 500,
             child: FutureBuilder<List<MovieInfo>>(
               future: viewModel.getMovieInfoList(),
-                // viewModel.fetchMovieInfoList를 넣고 싶었으나 무한루프 발생
-                // ChangeNotifier와 FutureBuilder+void 메소드는 같이 사용하면 안 될 듯
+                /*
+                future 속성에 Future<void> 타입의 viewModel.fetchMovieInfoList를 넣고 싶었으나
+                앱 첫 실행 때 무한루프 발생. Future<List>를 future에 넣으니까 해결.
+                ChangeNotifier와 FutureBuilder<void>는 같이 사용하면 안 될 듯
+                이런 문제들 때문에 앞으로 나올 상태관리 툴들을 사용하는 듯
+                 */
               builder: (context, snapshot) {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
