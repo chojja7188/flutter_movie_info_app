@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_info_app/data/model/movie_info.dart';
 import 'package:flutter_movie_info_app/presentation/component/movie_item.dart';
 import 'package:flutter_movie_info_app/view_model/main_view_model.dart';
 
@@ -51,8 +52,10 @@ class _MainScreenState extends State<MainScreen> {
           ),
           SizedBox(
             height: 500,
-            child: FutureBuilder<void>(
-              future: viewModel.fetchMovieInfoList(),
+            child: FutureBuilder<List<MovieInfo>>(
+              future: viewModel.getMovieInfoList(),
+                // viewModel.fetchMovieInfoList를 넣고 싶었으나 무한루프 발생
+                // ChangeNotifier와 FutureBuilder+void 메소드는 같이 사용하면 안 될 듯
               builder: (context, snapshot) {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

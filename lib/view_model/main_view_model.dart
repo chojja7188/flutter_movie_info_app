@@ -15,4 +15,9 @@ class MainViewModel with ChangeNotifier {
     _movieInfoList = await _movieRepository.getMovieInfoList();
     notifyListeners();
   }
+
+  Future<List<MovieInfo>> getMovieInfoList() async {
+    _movieInfoList = await _movieRepository.getMovieInfoList();
+    return movieInfoList;
+}
 }
