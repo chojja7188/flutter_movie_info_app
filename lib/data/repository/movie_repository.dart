@@ -5,7 +5,7 @@ import 'package:flutter_movie_info_app/data/model/movie_info.dart';
 
 abstract interface class MovieRepository {
   Future<List<MovieInfo>> getMovieInfoList();
-  Future<Movie> getMovie(int id);
+  // Future<Movie> getMovie(int id);
 }
 
 class MovieRepositoryImpl implements MovieRepository {
@@ -26,6 +26,7 @@ class MovieRepositoryImpl implements MovieRepository {
     }
   }
 
+  /*
   @override
   Future<Movie> getMovie(int id) async {
     try {
@@ -63,4 +64,5 @@ class MovieRepositoryImpl implements MovieRepository {
       );
     }
   }
+   */
 }

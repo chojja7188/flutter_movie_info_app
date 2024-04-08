@@ -25,6 +25,7 @@ class MovieApi {
     return jsonList.map((e) => ResultsDto.fromJson(e)).toList();
   }
 
+  /*
   Future<Movie> getMovie(int id) async {
     final response = await _client.get(Uri.parse('$_baseUrl/$id?api_key=$_apiKey&language=ko-KR&page=1'))
         .onError((error, stackTrace) => throw Exception('Error: $error'));
@@ -35,4 +36,5 @@ class MovieApi {
 
     return Movie.fromJson(json);
   }
+   */
 }
