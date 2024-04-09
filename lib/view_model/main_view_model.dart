@@ -11,13 +11,15 @@ class MainViewModel with ChangeNotifier {
 
   List<MovieInfo> get movieInfoList => _movieInfoList;
 
-  Future<void> fetchMovieInfoList() async {
+  void fetchMovieInfoList() async {
     _movieInfoList = await _movieRepository.getMovieInfoList();
     notifyListeners();
   }
 
+  /*
   Future<List<MovieInfo>> getMovieInfoList() async {
     _movieInfoList = await _movieRepository.getMovieInfoList();
     return movieInfoList;
-}
+  }
+   */
 }
